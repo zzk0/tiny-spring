@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean name="dragonBone" class="top.zzk0.bean.Bone">
+        <property name="type" value="dragon"></property>
+        <property name="owner" ref="dog"></property>
+    </bean>
+    <bean name="dog" class="top.zzk0.bean.Dog">
+        <property name="name" value="zangao"></property>
+        <property name="bone" ref="dragonBone"></property>
+    </bean>
+</beans>

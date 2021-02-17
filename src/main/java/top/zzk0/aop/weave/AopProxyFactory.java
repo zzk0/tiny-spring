@@ -12,6 +12,6 @@ JdkDynamicAopProxy(调用 getProxy 来获取代理对象)
 --> TargetSource(传入对象和类)
 */
 
-public interface AopProxy {
+public interface AopProxyFactory {
     Object getProxy();
 }

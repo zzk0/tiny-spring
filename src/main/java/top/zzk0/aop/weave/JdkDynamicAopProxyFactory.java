@@ -6,11 +6,11 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
+public class JdkDynamicAopProxyFactory implements AopProxyFactory, InvocationHandler {
 
     private AdvisedSupport advisedSupport;
 
-    public JdkDynamicAopProxy(AdvisedSupport advisedSupport) {
+    public JdkDynamicAopProxyFactory(AdvisedSupport advisedSupport) {
         this.advisedSupport = advisedSupport;
     }
 

@@ -3,7 +3,7 @@ package top.zzk0.aop;
 import org.junit.jupiter.api.Test;
 import top.zzk0.aop.aspectj.AspectJExpressionPointCut;
 import top.zzk0.aop.weave.AdvisedSupport;
-import top.zzk0.aop.weave.JdkDynamicAopProxy;
+import top.zzk0.aop.weave.JdkDynamicAopProxyFactory;
 import top.zzk0.aop.weave.TargetSource;
 import top.zzk0.bean.Animal;
 import top.zzk0.bean.Bone;
@@ -30,7 +30,7 @@ class JdkDynamicAopProxyTest {
         AspectJExpressionPointCut pointCut = new AspectJExpressionPointCut();
         pointCut.setExpression("execution(* top.zzk0.bean.*.say(..))");
         advisedSupport.setMethodMatcher(pointCut.getMethodMatcher());
-        JdkDynamicAopProxy proxy = new JdkDynamicAopProxy(advisedSupport);
+        JdkDynamicAopProxyFactory proxy = new JdkDynamicAopProxyFactory(advisedSupport);
 
         // 获取代理对象
         Animal dog1 = (Animal)proxy.getProxy();

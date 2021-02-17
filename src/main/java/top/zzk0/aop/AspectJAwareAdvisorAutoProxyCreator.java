@@ -1,10 +1,9 @@
 package top.zzk0.aop;
 
 import org.aopalliance.intercept.MethodInterceptor;
-import top.zzk0.aop.aspectj.Advisor;
 import top.zzk0.aop.aspectj.AspectJExpressionPointCutAdvisor;
 import top.zzk0.aop.weave.AdvisedSupport;
-import top.zzk0.aop.weave.JdkDynamicAopProxy;
+import top.zzk0.aop.weave.JdkDynamicAopProxyFactory;
 import top.zzk0.aop.weave.TargetSource;
 import top.zzk0.ioc.BeanPostProcessor;
 import top.zzk0.ioc.factory.AbstractBeanFactory;
@@ -38,7 +37,7 @@ public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, B
                 advisedSupport.setTargetSource(targetSource);
                 advisedSupport.setMethodInterceptor((MethodInterceptor)advisor.getAdvice());
                 advisedSupport.setMethodMatcher(advisor.getPointCut().getMethodMatcher());
-                JdkDynamicAopProxy proxy = new JdkDynamicAopProxy(advisedSupport);
+                JdkDynamicAopProxyFactory proxy = new JdkDynamicAopProxyFactory(advisedSupport);
 
                 return proxy.getProxy();
             }

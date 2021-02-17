@@ -1,7 +1,7 @@
-package top.zzk0.context;
+package top.zzk0.ioc.context;
 
 import top.zzk0.ioc.BeanDefinition;
-import top.zzk0.factory.AbstractBeanFactory;
+import top.zzk0.ioc.factory.AbstractBeanFactory;
 
 public class AbstractApplicationContext implements ApplicationContext {
 

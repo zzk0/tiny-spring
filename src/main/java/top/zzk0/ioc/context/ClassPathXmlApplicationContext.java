@@ -1,16 +1,16 @@
-package top.zzk0.context;
+package top.zzk0.ioc.context;
 
 import top.zzk0.ioc.BeanDefinition;
-import top.zzk0.factory.AbstractBeanFactory;
-import top.zzk0.factory.AutowireCapableBeanFactory;
-import top.zzk0.io.ResourceLoader;
-import top.zzk0.xml.XmlBeanDefinitionReader;
+import top.zzk0.ioc.factory.AbstractBeanFactory;
+import top.zzk0.ioc.factory.AutowireCapableBeanFactory;
+import top.zzk0.ioc.io.ResourceLoader;
+import top.zzk0.ioc.xml.XmlBeanDefinitionReader;
 
 import java.util.Map;
 
 public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
 
-    private String xmlPath;
+    private final String xmlPath;
 
     public ClassPathXmlApplicationContext(String xmlPath) throws Exception {
         this(new AutowireCapableBeanFactory(), xmlPath);

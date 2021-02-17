@@ -1,6 +1,6 @@
 package top.zzk0.bean;
 
-public class Bone {
+public class Bone implements IBone {
 
     private String type;
     private Dog owner;

@@ -1,7 +1,7 @@
-package top.zzk0.xml;
+package top.zzk0.ioc.xml;
 
 import top.zzk0.ioc.BeanDefinition;
-import top.zzk0.io.ResourceLoader;
+import top.zzk0.ioc.io.ResourceLoader;
 
 import java.util.HashMap;
 import java.util.Map;

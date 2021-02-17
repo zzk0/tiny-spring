@@ -1,4 +1,4 @@
-package top.zzk0.factory;
+package top.zzk0.ioc.factory;
 
 import top.zzk0.ioc.BeanDefinition;
 

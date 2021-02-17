@@ -1,4 +1,4 @@
-package top.zzk0.io;
+package top.zzk0.ioc.io;
 
 import java.io.IOException;
 import java.io.InputStream;

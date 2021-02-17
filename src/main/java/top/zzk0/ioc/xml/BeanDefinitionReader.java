@@ -1,6 +1,4 @@
-package top.zzk0.xml;
-
-import java.io.IOException;
+package top.zzk0.ioc.xml;
 
 /*
 [interface] BeanDefinitionReader: 读取 bean 定义的接口

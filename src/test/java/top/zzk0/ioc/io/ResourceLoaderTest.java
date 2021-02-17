@@ -1,10 +1,8 @@
-package top.zzk0.io;
+package top.zzk0.ioc.io;
 
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ResourceLoaderTest {
 

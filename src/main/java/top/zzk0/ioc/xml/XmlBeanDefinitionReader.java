@@ -1,4 +1,4 @@
-package top.zzk0.xml;
+package top.zzk0.ioc.xml;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,8 +7,8 @@ import org.w3c.dom.NodeList;
 import top.zzk0.ioc.BeanDefinition;
 import top.zzk0.ioc.BeanReference;
 import top.zzk0.ioc.PropertyValue;
-import top.zzk0.io.Resource;
-import top.zzk0.io.ResourceLoader;
+import top.zzk0.ioc.io.Resource;
+import top.zzk0.ioc.io.ResourceLoader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

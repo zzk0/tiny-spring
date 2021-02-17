@@ -1,10 +1,12 @@
-package top.zzk0.factory;
+package top.zzk0.ioc.factory;
 
+import top.zzk0.aop.BeanFactoryAware;
 import top.zzk0.ioc.BeanDefinition;
 import top.zzk0.ioc.BeanReference;
 import top.zzk0.ioc.PropertyValue;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 
@@ -27,15 +29,26 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
      * @throws Exception 异常随便抛...
      */
     private void applyPropertyValues(BeanDefinition definition, Object bean) throws Exception {
+        if (bean instanceof BeanFactoryAware) {
+            ((BeanFactoryAware) bean).setBeanFactory(this);
+        }
         for (PropertyValue propertyValue : definition.getPropertyValues().getPropertyValueList()) {
-            Field field = bean.getClass().getDeclaredField(propertyValue.getField());
-            field.setAccessible(true);
             Object value = propertyValue.getValue();
             if (value instanceof BeanReference) {
                 BeanReference reference = (BeanReference)value;
                 value = getBean(reference.getName());
             }
-            field.set(bean, value);
+            try {
+                Method declaredMethod = bean.getClass().getDeclaredMethod(
+                        "set" + propertyValue.getField().substring(0, 1).toUpperCase()
+                                + propertyValue.getField().substring(1), value.getClass());
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(bean, value);
+            } catch (NoSuchMethodException e) {
+                Field declaredField = bean.getClass().getDeclaredField(propertyValue.getField());
+                declaredField.setAccessible(true);
+                declaredField.set(bean, value);
+            }
         }
     }
 }

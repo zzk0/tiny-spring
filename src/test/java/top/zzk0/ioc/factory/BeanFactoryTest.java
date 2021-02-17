@@ -28,6 +28,7 @@ class BeanFactoryTest {
         // 取出 dog
         Animal dog = (Animal)factory.getBean("dog");
         dog.say();
+        dog.walk();
     }
 
     @Test
@@ -35,7 +36,8 @@ class BeanFactoryTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("tiny-spring.xml");
 
         // 取出 dog
-        Dog dog = (Dog)context.getBean("dog");
+        Animal dog = (Animal)context.getBean("dog");
         dog.say();
+        dog.walk();
     }
 }

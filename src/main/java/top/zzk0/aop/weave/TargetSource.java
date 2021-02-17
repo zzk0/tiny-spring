@@ -2,12 +2,14 @@ package top.zzk0.aop.weave;
 
 public class TargetSource {
 
-    private Class targetClass;
     private Object target;
+    private Class targetClass;
+    private Class[] interfaces;
 
-    public TargetSource(Class targetClass, Object target) {
-        this.targetClass = targetClass;
+    public TargetSource(Object target, Class targetClass, Class[] interfaces) {
         this.target = target;
+        this.targetClass = targetClass;
+        this.interfaces = interfaces;
     }
 
     public Class getTargetClass() {
@@ -16,5 +18,9 @@ public class TargetSource {
 
     public Object getTarget() {
         return target;
+    }
+
+    public Class[] getInterfaces() {
+        return interfaces;
     }
 }

@@ -1,6 +1,7 @@
 package top.zzk0.aop;
 
 import org.junit.jupiter.api.Test;
+import top.zzk0.aop.aspectj.AspectJExpressionPointCut;
 import top.zzk0.aop.weave.AdvisedSupport;
 import top.zzk0.aop.weave.JdkDynamicAopProxy;
 import top.zzk0.aop.weave.TargetSource;
@@ -21,10 +22,14 @@ class JdkDynamicAopProxyTest {
         dog.say();
 
         // 动态代理
-        TargetSource targetSource = new TargetSource(Animal.class, dog);
+        TargetSource targetSource = new TargetSource(dog, dog.getClass(), dog.getClass().getInterfaces());
         AdvisedSupport advisedSupport = new AdvisedSupport();
         advisedSupport.setTargetSource(targetSource);
         advisedSupport.setMethodInterceptor(new TimerInterceptor());
+
+        AspectJExpressionPointCut pointCut = new AspectJExpressionPointCut();
+        pointCut.setExpression("execution(* top.zzk0.bean.*.say(..))");
+        advisedSupport.setMethodMatcher(pointCut.getMethodMatcher());
         JdkDynamicAopProxy proxy = new JdkDynamicAopProxy(advisedSupport);
 
         // 获取代理对象

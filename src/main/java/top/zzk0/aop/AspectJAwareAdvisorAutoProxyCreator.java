@@ -12,7 +12,7 @@ import top.zzk0.ioc.factory.BeanFactory;
 import java.util.List;
 
 /*
-这个类集成了 BeanPostProcessor, 当进行 Bean 的初始化的时候，会调用里面的方法, 比如进行 weave
+这个类实现了 BeanPostProcessor, 当进行 Bean 的初始化的时候，会调用里面的方法, 比如进行 weave
 */
 
 public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, BeanFactoryAware {
